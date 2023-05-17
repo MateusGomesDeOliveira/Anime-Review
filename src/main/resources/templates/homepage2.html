@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>Anime Review</title>
+        <style>
+            h1{text-align: center;}
+            h3{text-align: left;}
+            .buttonH:hover{
+                background-color:#008CBA;
+                color:white;
+            }
+        </style>
+    </head>
+    <body style="background-color:black;color:white;font-family:verdana;">
+        <h3><a href="https://myanimelist.net/">MAL SERVER:</a> <span th:style="${statusColor}" th:text="${status}"></span></h3><h1>Anime Review</h1>
+        <h2>TOP AIRING</h2>
+        <a th:href="${id1}"><img th:src="${img1}" th:alt="${alt1}" style="width:225px;height:316px;"></a>
+        <a th:href="${id2}"><img th:src="${img2}" th:alt="${alt2}" style="width:225px;height:316px;"></a>
+        <a th:href="${id3}"><img th:src="${img3}" th:alt="${alt3}" style="width:225px;height:316px;"></a>
+        <a th:href="${id4}"><img th:src="${img4}" th:alt="${alt4}" style="width:225px;height:316px;"></a>
+        <br>
+        <h2>ANIME SEARCH</h2>
+        <p th:if="${scoreSearch} > 0">
+            <span th:text="${titleSearch}"></span>
+            || Score:
+            <span th:if="${scoreSearch} >= 8.0" th:text="${scoreSearch}" style="color:green"></span>
+            <span th:if="${scoreSearch >= 4 and scoreSearch < 8.0}" th:text="${scoreSearch}" style="color:yellow"></span>
+            <span th:if="${scoreSearch} < 4" th:text="${scoreSearch}" style="color:red"></span>
+            || Episodes:
+            <span th:text="${episodesSearch}"></span>
+        </p>
+        <div style="float:left">
+            <a th:href="${hrefSearch}"><img th:src="${imgSearch}" th:alt="${titleSearch}" style="width:225px;height:316px;"></a>
+        </div>
+        <p style="padding: 0 0 0 250px;"><span th:text="${synopsisSearch}"></span></p>
+        <form action="/" method="get">
+            <button style="margin: 0 0 0 25px;font-size: 15px" class="buttonH"><b>Another Search</b></button>
+        </form>
+    </body>
+</html>

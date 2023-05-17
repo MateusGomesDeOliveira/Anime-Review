@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>Anime Review</title>
+        <style>
+            h1{text-align: center;}
+            h3{text-align: left;}
+        </style>
+    </head>
+    <body style="background-color:black;color:white;font-family:verdana;">
+        <h3><a href="https://myanimelist.net/">MAL SERVER:</a> <span th:style="${statusColor}" th:text="${status}"></span></h3><h1>Anime Review</h1>
+        <h2>TOP AIRING</h2>
+        <a th:href="${id1}"><img th:src="${img1}" th:alt="${alt1}" style="width:225px;height:316px;"></a>
+        <a th:href="${id2}"><img th:src="${img2}" th:alt="${alt2}" style="width:225px;height:316px;"></a>
+        <a th:href="${id3}"><img th:src="${img3}" th:alt="${alt3}" style="width:225px;height:316px;"></a>
+        <a th:href="${id4}"><img th:src="${img4}" th:alt="${alt4}" style="width:225px;height:316px;"></a>
+        <br>
+        <h2>ANIME SEARCH</h2>
+        <p>Type an anime ID</p>
+        <form th:action="@{/input}" th:object="${userInput}" method="get">
+            <input type="number" th:field="*{input}" size="40"/>
+            <button><b>Search</b></button>
+        </form>
+    </body>
+</html>
